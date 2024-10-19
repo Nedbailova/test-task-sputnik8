@@ -36,3 +36,8 @@
   </svg>
 </template>
 
+<style scoped>
+svg {
+  display: block;
+}
+</style>
