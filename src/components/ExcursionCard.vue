@@ -1,6 +1,17 @@
+<script setup lang="ts">
+defineProps({
+    imgUrl: String,
+    ratingValue: String,
+    ratingNumber: Number,
+    title: String,
+    costNumber: Number,
+    type: String,
+})
+</script>
+
 <template>
   <div class="excursion-card">
-    <img src="" alt="" />
+    <img :src="imgUrl" alt="imgExcursion" />
     <div class="container">
       <div class="rating">
         <svg
@@ -17,14 +28,14 @@
             fill="#FFD300"
           />
         </svg>
-        <p class="rating-value">4,8</p>
-        <p class="rating-number">(468)</p>
+        <p class="rating-value">{{ ratingValue }}</p>
+        <p class="rating-number">({{ratingNumber}})</p>
       </div>
-      <p class="title">Храм Василия Блаженного: аудиоэкскурсия с билетом</p>
+      <p class="title">{{ title }}</p>
     </div>
     <div class="cost">
-      <p class="cost-number">от 2 500 ₽</p>
-      <p class="type">за экскурсию</p>
+      <p class="cost-number">от {{ costNumber }} ₽</p>
+      <p class="type">{{ type }}</p>
     </div>
   </div>
 </template>
