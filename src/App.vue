@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import LogoSputnik8 from './components/LogoSputnik8.vue'
 import Heading from './components/Heading.vue'
+import Search from './components/Search.vue'
 import ExcursionCardList from '././components/ExcursionCardList.vue'
 </script>
 
@@ -15,9 +16,11 @@ import ExcursionCardList from '././components/ExcursionCardList.vue'
   </header>
 
   <main>
+    <div class="search-block">
+      <Search />
+    </div>
     <ExcursionCardList />
   </main>
-
 </template>
 
 <style scoped>
@@ -32,5 +35,13 @@ header {
 .logo {
   margin-top: 50px;
   margin-bottom: 30px;
+}
+
+.search-block {
+  margin-bottom: 90px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
 }
 </style>
