@@ -2,6 +2,7 @@
 import LogoSputnik8 from './components/LogoSputnik8.vue'
 import Heading from './components/Heading.vue'
 import Search from './components/Search.vue'
+import CityDropdown from './components/CityDropdown.vue'
 import ExcursionCardList from '././components/ExcursionCardList.vue'
 </script>
 
@@ -18,6 +19,7 @@ import ExcursionCardList from '././components/ExcursionCardList.vue'
   <main>
     <div class="search-block">
       <Search />
+      <CityDropdown />
     </div>
     <ExcursionCardList />
   </main>
@@ -43,5 +45,6 @@ header {
   justify-content: center;
   flex-direction: row;
   align-items: center;
+  gap: 8px;
 }
 </style>

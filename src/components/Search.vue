@@ -45,7 +45,7 @@ input:focus {
 
 svg {
   position: relative;
-  right: 30px;
+  right: 35px;
   cursor: pointer;
 }
 </style>
