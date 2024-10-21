@@ -1,11 +1,11 @@
 <script setup lang="ts">
 defineProps({
-    imgUrl: String,
-    ratingValue: String,
-    ratingNumber: Number,
-    title: String,
-    costNumber: Number,
-    type: String,
+  imgUrl: String,
+  ratingValue: String,
+  ratingNumber: Number,
+  title: String,
+  costNumber: Number,
+  type: String,
 })
 </script>
 
@@ -29,12 +29,12 @@ defineProps({
           />
         </svg>
         <p class="rating-value">{{ ratingValue }}</p>
-        <p class="rating-number">({{ratingNumber}})</p>
+        <p class="rating-number">({{ ratingNumber }})</p>
       </div>
       <p class="title">{{ title }}</p>
     </div>
     <div class="cost">
-      <p class="cost-number">от {{ costNumber }} ₽</p>
+      <p class="cost-number">от {{ costNumber }}</p>
       <p class="type">{{ type }}</p>
     </div>
   </div>
