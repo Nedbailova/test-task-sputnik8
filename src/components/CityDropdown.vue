@@ -1,13 +1,10 @@
 <script setup lang="ts">
-const cities = [
-  { id: 1, name: 'Москва' },
-  { id: 2, name: 'Санкт-Петербург' },
-  { id: 3, name: 'Казань' },
-  { id: 4, name: 'Сочи' },
-  { id: 5, name: 'Инта' },
-]
+const apiUrl =
+  'http://localhost:5173/v1/cities?api_key=873fa71c061b0c36d9ad7e47ec3635d9&username=frontend@sputnik8.com'
 
-document.addEventListener('DOMContentLoaded', () => {
+let cities: any[] = []
+
+function addOptionsCityDropdown() {
   const cityDropdown = document.getElementById('city-dropdown')
   if (cityDropdown) {
     cities.forEach(city => {
@@ -19,7 +16,22 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     console.error('Not found select with id "city-dropdown"')
   }
-})
+}
+
+fetch(apiUrl)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok')
+    }
+    return response.json()
+  })
+  .then(userData => {
+    cities = userData
+    addOptionsCityDropdown()
+  })
+  .catch(error => {
+    console.error('Error:', error)
+  })
 </script>
 
 <template>
