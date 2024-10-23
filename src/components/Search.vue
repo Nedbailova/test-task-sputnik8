@@ -1,16 +1,27 @@
 <script setup lang="ts">
+import { ref, inject, watch } from 'vue'
+
+const inputText = ref('')
+
+const setInputText = inject('setInputText') as (text: string) => void
+
 function resetExcursionName() {
   const inputElement = document.getElementById('input-search')
   if (inputElement instanceof HTMLInputElement) {
     inputElement.value = ''
+    inputText.value = ''
   } else {
     console.error('Not found input with id "input-search"')
   }
 }
+
+watch(inputText, newText => {
+    setInputText(newText)
+})
 </script>
 
 <template>
-  <input id="input-search" placeholder="Введите название экскурсии" />
+  <input id="input-search" placeholder="Введите название экскурсии" v-model="inputText"/>
   <svg
     @click="resetExcursionName"
     width="10"

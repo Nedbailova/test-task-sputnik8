@@ -1,9 +1,24 @@
 <script setup lang="ts">
+import { ref, provide } from 'vue'
 import LogoSputnik8 from './components/LogoSputnik8.vue'
 import Heading from './components/Heading.vue'
 import Search from './components/Search.vue'
 import CityDropdown from './components/CityDropdown.vue'
 import ExcursionCardList from '././components/ExcursionCardList.vue'
+
+const selectedCity = ref<string | null>(null)
+const inputText = ref<string>('')
+
+provide('selectedCity', selectedCity)
+provide('setSelectedCity', (city: string) => {
+  selectedCity.value = city
+})
+
+provide('inputText', inputText) 
+provide('setInputText', (text: string) => {
+  inputText.value = text
+})
+
 </script>
 
 <template>

@@ -1,8 +1,13 @@
 <script setup lang="ts">
+import { ref, inject, watch } from 'vue'
+
 const apiUrl =
   'http://localhost:5173/v1/cities?api_key=873fa71c061b0c36d9ad7e47ec3635d9&username=frontend@sputnik8.com'
 
 let cities: any[] = []
+const selectedCity = ref('')
+
+const setSelectedCity = inject('setSelectedCity') as (city: string) => void
 
 function addOptionsCityDropdown() {
   const cityDropdown = document.getElementById('city-dropdown')
@@ -32,6 +37,12 @@ fetch(apiUrl)
   .catch(error => {
     console.error('Error:', error)
   })
+
+watch(selectedCity, newCity => {
+  if (newCity) {
+    setSelectedCity(newCity)
+  }
+})
 </script>
 
 <template>
@@ -48,7 +59,7 @@ fetch(apiUrl)
     />
   </svg>
 
-  <select id="city-dropdown">
+  <select id="city-dropdown" v-model="selectedCity">
     <option value="" hidden>Выберите город</option>
   </select>
 </template>
