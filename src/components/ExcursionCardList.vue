@@ -93,7 +93,8 @@ watch(inputText, () => {
   </div>
   <Button
     v-if="
-      filteredExcursions.length === 0 && selectedCity !== '' && inputText !== ''
+      filteredExcursions.length === 0 &&
+      (selectedCity !== '' || inputText !== '')
     "
   />
 </template>
