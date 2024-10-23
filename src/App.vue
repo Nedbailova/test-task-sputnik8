@@ -1,53 +1,65 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { ref, provide } from 'vue'
+import LogoSputnik8 from './components/LogoSputnik8.vue'
+import Heading from './components/Heading.vue'
+import Search from './components/Search.vue'
+import CityDropdown from './components/CityDropdown.vue'
+import ExcursionCardList from '././components/ExcursionCardList.vue'
+
+const selectedCity = ref<string | null>(null)
+const inputText = ref<string>('')
+
+provide('selectedCity', selectedCity)
+provide('setSelectedCity', (city: string) => {
+  selectedCity.value = city
+})
+
+provide('inputText', inputText) 
+provide('setInputText', (text: string) => {
+  inputText.value = text
+})
+
 </script>
 
 <template>
   <header>
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="./assets/logo.svg"
-      width="125"
-      height="125"
-    />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+    <div class="logo">
+      <LogoSputnik8 />
+    </div>
+    <div class="heading">
+      <Heading />
     </div>
   </header>
 
   <main>
-    <TheWelcome />
+    <div class="search-block">
+      <Search />
+      <CityDropdown />
+    </div>
+    <ExcursionCardList />
   </main>
 </template>
 
 <style scoped>
 header {
-  line-height: 1.5;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
 }
 
 .logo {
-  display: block;
-  margin: 0 auto 2rem;
+  margin-top: 50px;
+  margin-bottom: 30px;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.search-block {
+  margin-bottom: 90px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
 }
 </style>
