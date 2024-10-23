@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, inject, watch, type Ref } from 'vue'
 import ExcursionCard from './ExcursionCard.vue'
+import Button from './Button.vue'
 
 const apiUrl =
   'http://localhost:5173/v1/products?api_key=873fa71c061b0c36d9ad7e47ec3635d9&username=frontend@sputnik8.com'
@@ -69,6 +70,7 @@ watch(inputText, () => {
       type="за экскурсию"
     />
   </div>
+  <Button v-if="filteredExcursions.length === 0" />
 </template>
 
 <style scoped>

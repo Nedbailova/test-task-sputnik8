@@ -16,12 +16,16 @@ function resetExcursionName() {
 }
 
 watch(inputText, newText => {
-    setInputText(newText)
+  setInputText(newText)
 })
 </script>
 
 <template>
-  <input id="input-search" placeholder="Введите название экскурсии" v-model="inputText"/>
+  <input
+    id="input-search"
+    placeholder="Введите название экскурсии"
+    v-model="inputText"
+  />
   <svg
     @click="resetExcursionName"
     width="10"

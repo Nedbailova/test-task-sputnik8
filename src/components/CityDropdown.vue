@@ -39,9 +39,7 @@ fetch(apiUrl)
   })
 
 watch(selectedCity, newCity => {
-  if (newCity) {
-    setSelectedCity(newCity)
-  }
+  setSelectedCity(newCity)
 })
 </script>
 
@@ -60,7 +58,7 @@ watch(selectedCity, newCity => {
   </svg>
 
   <select id="city-dropdown" v-model="selectedCity">
-    <option value="" hidden>Выберите город</option>
+    <option value="" class="hidden">Выберите город</option>
   </select>
 </template>
 
@@ -83,5 +81,9 @@ select {
 svg {
   position: relative;
   left: 290px;
+}
+
+.hidden {
+  display: none;
 }
 </style>
