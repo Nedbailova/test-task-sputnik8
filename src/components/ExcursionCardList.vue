@@ -59,6 +59,12 @@ function getTypeText(type: string) {
   }
 }
 
+function priceConversion(price: string) {
+  let split_price = price.split(' ')
+  price = split_price[0].slice(0, -3) + ' ' + split_price[1]
+  return price
+}
+
 onMounted(() => {
   fetchExcursions(null)
 })
@@ -81,7 +87,7 @@ watch(inputText, () => {
       :ratingValue="excursion.customers_review_rating"
       :ratingNumber="excursion.recommendation"
       :title="excursion.title"
-      :costNumber="excursion.netto_price"
+      :costNumber="priceConversion(excursion.netto_price)"
       :type="getTypeText(excursion.activity_type)"
     />
   </div>
