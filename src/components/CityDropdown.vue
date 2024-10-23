@@ -31,7 +31,10 @@ fetch(apiUrl)
     return response.json()
   })
   .then(userData => {
-    cities = userData
+    cities = userData.sort(
+      (a: { [x: string]: string }, b: { [x: string]: any }) =>
+        a['name'].localeCompare(b['name']),
+    )
     addOptionsCityDropdown()
   })
   .catch(error => {
