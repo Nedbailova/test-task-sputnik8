@@ -91,7 +91,11 @@ watch(inputText, () => {
       :type="getTypeText(excursion.activity_type)"
     />
   </div>
-  <Button v-if="filteredExcursions.length === 0" />
+  <Button
+    v-if="
+      filteredExcursions.length === 0 && selectedCity !== '' && inputText !== ''
+    "
+  />
 </template>
 
 <style scoped>
