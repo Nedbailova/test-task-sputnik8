@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, inject, type Ref } from 'vue'
-
+import Paragraph from './Paragraph.vue'
 
 const inputText = inject('inputText') as Ref<string>
 const selectedCity = inject('selectedCity') as Ref<string | null>
@@ -33,7 +33,7 @@ function resetFilters() {
 
 <template>
   <div class="button-block">
-    <h2>Поиск не дал результатов</h2>
+    <Paragraph />
     <button @click="resetFilters">Сбросить фильтры</button>
   </div>
 </template>
@@ -56,13 +56,5 @@ button {
   color: #fff;
   border: none;
   border-radius: 3px;
-}
-
-h2 {
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 34px;
-  margin-bottom: 30px;
-  margin-top: 110px;
 }
 </style>
