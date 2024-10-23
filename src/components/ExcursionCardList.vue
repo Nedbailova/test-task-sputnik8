@@ -44,6 +44,21 @@ function filterExcursions() {
   }
 }
 
+function getTypeText(type: string) {
+  switch (type) {
+    case 'tour':
+      return 'за экскурсию'
+    case 'entry_ticket':
+      return 'за входной билет'
+    case 'transfer':
+      return 'за трансфер'
+    case 'composite_activity':
+      return 'за сборную экскурсию'
+    default:
+      return ''
+  }
+}
+
 onMounted(() => {
   fetchExcursions(null)
 })
@@ -67,7 +82,7 @@ watch(inputText, () => {
       :ratingNumber="excursion.recommendation"
       :title="excursion.title"
       :costNumber="excursion.netto_price"
-      type="за экскурсию"
+      :type="getTypeText(excursion.activity_type)"
     />
   </div>
   <Button v-if="filteredExcursions.length === 0" />

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 defineProps({
   imgUrl: String,
-  ratingValue: String,
+  ratingValue: Number,
   ratingNumber: Number,
   title: String,
-  costNumber: Number,
+  costNumber: String,
   type: String,
 })
 </script>
